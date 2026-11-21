@@ -1,0 +1,35 @@
+# Environment
+.env
+.env.*
+.env.local
+!.env.example
+
+.python-version
+
+# Dependencies
+node_modules/
+vendor/
+__pycache__/
+.venv/
+
+# Build outputs
+dist/
+build/
+.next/
+*.pyc
+
+# Claude local files
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Browser automation output
+.playwright-mcp/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
