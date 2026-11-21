@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chain Ring Labs</title>
+  <meta name="description" content="Open-source self-hosted web apps, command-line tools and Mac utilities from Chain Ring Labs.">
+  <meta property="og:title" content="Chain Ring Labs">
+  <meta property="og:description" content="Open-source self-hosted web apps, command-line tools and Mac utilities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chainringlabs.com/">
+  <meta property="og:image" content="https://chainringlabs.com/assets/screenshots/turfops-dashboard.png">
+  <link rel="canonical" href="https://chainringlabs.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <header class="top">
+    <a class="wordmark" href="/" aria-label="Chain Ring Labs home">
+      <img src="favicon.svg" alt="" width="26" height="26">
+      <span>Chain Ring Labs</span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="https://github.com/chainringlabs">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-ring" src="assets/chainring.svg" alt="" width="488" height="488">
+      <p class="eyebrow">Open source · 14 projects</p>
+      <h1>Small software<br>you run <em>yourself.</em></h1>
+      <p class="lede">Chain Ring Labs builds self-hosted web apps, command-line tools and Mac utilities. Each one is open source, runs on your own hardware and does one job.</p>
+      <p class="hero-links">
+        <a class="btn btn-solid" href="#projects">Browse the projects</a>
+        <a class="btn" href="https://github.com/chainringlabs">github.com/chainringlabs</a>
+      </p>
+    </section>
+
+    <div id="projects" class="rule"><span>Featured</span></div>
+
+    <article class="feature" id="turfops">
+      <div class="feature-text">
+        <p class="num">No. 01 <span>Web app</span></p>
+        <h2>TurfOps</h2>
+        <p class="blurb">Lawn care tracking with agronomic advice drawn from your own data. Log what you apply, and soil temperature, growing degree days and published disease models tell you when to seed, feed, spray or wait.</p>
+        <ul class="points">
+          <li>Five disease-risk models, each with an 11-day trend and outlook</li>
+          <li>Seeding and pre-emergent windows from measured soil temperature</li>
+          <li>Nitrogen budget, fungicide rotation and a seasonal plan</li>
+        </ul>
+        <dl class="spec">
+          <div><dt>Stack</dt><dd>Rust · Axum · React · PostgreSQL</dd></div>
+          <div><dt>Runs as</dt><dd>Docker Compose</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+        </dl>
+        <a class="btn btn-solid" href="https://github.com/chainringlabs/turfops">Source on GitHub <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="gallery" data-gallery>
+        <a class="shot" href="assets/screenshots/turfops-dashboard.png">
+          <img src="assets/screenshots/turfops-dashboard.png" width="1456" height="822" alt="TurfOps dashboard with soil conditions, disease risk, timing windows and nitrogen budget">
+        </a>
+        <div class="thumbs">
+          <button type="button" aria-pressed="true" data-src="assets/screenshots/turfops-dashboard.png" data-alt="TurfOps dashboard with soil conditions, disease risk, timing windows and nitrogen budget">Dashboard</button>
+          <button type="button" aria-pressed="false" data-src="assets/screenshots/turfops-disease-risk.png" data-alt="TurfOps dollar spot disease risk detail page">Disease risk</button>
+          <button type="button" aria-pressed="false" data-src="assets/screenshots/turfops-timing-windows.png" data-alt="TurfOps seeding and pre-emergent timing windows page">Timing windows</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature flip" id="showrunner">
+      <div class="feature-text">
+        <p class="num">No. 02 <span>Web app</span></p>
+        <h2>Showrunner</h2>
+        <p class="blurb">A self-hosted TV and movie tracker for the streaming era. Build a watchlist, mark episodes watched, see what airs this month and get a straight answer to “what should I watch next?”</p>
+        <ul class="points">
+          <li>One container and one SQLite file, with no accounts to manage</li>
+          <li>Show and movie data from TMDB, refreshed on a schedule</li>
+          <li>Phone layout that installs to the home screen</li>
+        </ul>
+        <dl class="spec">
+          <div><dt>Stack</dt><dd>Rust · Axum · React · SQLite</dd></div>
+          <div><dt>Runs as</dt><dd>Single Docker container</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+        </dl>
+        <a class="btn btn-solid" href="https://github.com/chainringlabs/showrunner">Source on GitHub <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="gallery" data-gallery>
+        <a class="shot" href="assets/screenshots/showrunner-watchlist.png">
+          <img src="assets/screenshots/showrunner-watchlist.png" width="1456" height="822" alt="Showrunner watchlist with progress and status for each tracked show" loading="lazy">
+        </a>
+        <div class="thumbs">
+          <button type="button" aria-pressed="true" data-src="assets/screenshots/showrunner-watchlist.png" data-alt="Showrunner watchlist with progress and status for each tracked show">Watchlist</button>
+          <button type="button" aria-pressed="false" data-src="assets/screenshots/showrunner-calendar.png" data-alt="Showrunner calendar month view">Calendar</button>
+          <button type="button" aria-pressed="false" data-src="assets/screenshots/showrunner-up-next.png" data-alt="Showrunner Up Next list">Up next</button>
+        </div>
+      </div>
+    </article>
+
+    <div class="rule"><span>Services</span></div>
+
+    <section class="pair">
+      <article class="service" id="slacklistener">
+        <p class="num">No. 03 <span>Slack bot</span></p>
+        <h2>slacklistener</h2>
+        <p class="blurb">A Slack bot you configure in YAML. It watches the channels you name for keywords and images, sends them to the model of your choice through OpenRouter and replies in a thread.</p>
+        <figure class="code">
+          <figcaption>config.yaml</figcaption>
+<pre><code><b>channels</b>:
+  - <b>channel_name</b>: "support"
+    <b>keywords</b>: ["help", "issue"]
+    <b>llm</b>:
+      <b>model</b>: "anthropic/claude-3.5-sonnet"
+    <b>system_prompt</b>: |
+      You are a helpful support assistant.
+    <b>response</b>:
+      <b>thread_reply</b>: true
+      <b>add_reaction</b>: "eyes"</code></pre>
+        </figure>
+        <p class="meta"><span>Python · Slack · OpenRouter</span><span>MIT</span></p>
+        <a class="btn" href="https://github.com/chainringlabs/slacklistener">Source on GitHub <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="service" id="gmailclassifier">
+        <p class="num">No. 04 <span>Mail agent</span></p>
+        <h2>gmailclassifier</h2>
+        <p class="blurb">Labels your Gmail inbox with a decision model instead of a chatbot. Each label is a yes/no question scored with a probability, so the model can only pick from the labels you define.</p>
+        <figure class="code">
+          <figcaption>classifier_config.json</figcaption>
+<pre><code>{
+  <b>"labels"</b>: ["Work", "Personal", "Finance", "Shopping"],
+  <b>"label_descriptions"</b>: {
+    <b>"Work"</b>: "Work-related emails, meetings, …",
+    <b>"Personal"</b>: "Personal emails from friends and …",
+    <b>"Finance"</b>: "Bank statements, credit card bills, …",
+    <b>"Shopping"</b>: "Order confirmations, shipping …"
+  }
+}</code></pre>
+        </figure>
+        <p class="meta"><span>Python · Gmail API · OpenRouter</span><span>MIT</span></p>
+        <a class="btn" href="https://github.com/chainringlabs/gmailclassifier">Source on GitHub <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
+
+    <div class="rule"><span>More projects</span></div>
+
+    <section class="grid">
+      <article class="card">
+        <p class="num">No. 05 <span>Web app</span></p>
+        <h3>domiciledb</h3>
+        <p>Home inventory built for the insurance claim. Photograph what you own, attach receipts and export a room-by-room PDF proof packet when an adjuster asks.</p>
+        <p class="meta"><span>TypeScript · Next.js · SQLite</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/domiciledb">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 06 <span>Web app</span></p>
+        <h3>vanillamd</h3>
+        <p>WYSIWYG note taking that stores plain Markdown files in real folders. No database and no save button, and your notes open in any other editor.</p>
+        <p class="meta"><span>TypeScript · Fastify · React</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/vanillamd">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 07 <span>Web app</span></p>
+        <h3>postgenerator</h3>
+        <p>Drafts LinkedIn posts in your voice. It researches a topic, writes, then has an independent evaluator score the draft. Your edits and rejections shape the voice profile.</p>
+        <p class="meta"><span>Python · FastAPI · Claude</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/postgenerator">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card wide">
+        <div>
+          <p class="num">No. 08 <span>macOS</span></p>
+          <h3>daysuntil</h3>
+          <p>Count down to milestones, or up from them, with desktop widgets drawn as a number, bar, ring or dot grid. Everything is stored locally, with no account and no sync.</p>
+          <p class="meta"><span>Swift · SwiftUI · WidgetKit</span></p>
+          <a class="more" href="https://github.com/chainringlabs/daysuntil">Source <span aria-hidden="true">→</span></a>
+        </div>
+        <img src="assets/screenshots/daysuntil-ring.png" width="712" height="340" alt="DaysUntil medium widget showing a ring at 50 percent with 10 days until the milestone" loading="lazy">
+      </article>
+
+      <article class="card">
+        <p class="num">No. 09 <span>macOS</span></p>
+        <h3>liveselect</h3>
+        <p>A menu bar app. Drag a box around anything on screen and the text lands on your clipboard. OCR runs on-device through Apple Vision.</p>
+        <p class="meta"><span>Swift · Vision</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/liveselect">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 10 <span>Service</span></p>
+        <h3>backvault</h3>
+        <p>Scheduled, encrypted backups of a Bitwarden or Vaultwarden vault, plus a standalone tool that restores them when the server is gone.</p>
+        <p class="meta"><span>Rust · distroless container</span><span>AGPL-3.0</span></p>
+        <a class="more" href="https://github.com/chainringlabs/backvault">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 11 <span>Exporter</span></p>
+        <h3>jawnscanner</h3>
+        <p>A Prometheus exporter for TSA checkpoint wait times at Philadelphia International Airport, ready for Grafana dashboards and alerts.</p>
+        <p class="cmd"><code>phl_checkpoint_wait_minutes</code></p>
+        <p class="meta"><span>Rust · Prometheus</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/jawnscanner">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 12 <span>Terminal app</span></p>
+        <h3>runlogger</h3>
+        <p>A terminal app for logging daily runs and keeping a run-every-day streak alive, with streak stats, a 14-day chart and monthly mileage.</p>
+        <p class="meta"><span>Rust · Ratatui · SQLite</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/runlogger">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 13 <span>CLI</span></p>
+        <h3>ghcheck</h3>
+        <p>One command for every open pull request across your repos, colour-coded by CI status, so stuck dependency updates are obvious.</p>
+        <p class="cmd"><code>$ ghcheck --failing --bot</code></p>
+        <p class="meta"><span>Rust · GitHub CLI</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/ghcheck">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="card">
+        <p class="num">No. 14 <span>CLI</span></p>
+        <h3>goldfinch</h3>
+        <p>Read-only lookup for AWS Secrets Manager. List secrets, fetch one, or search across secret names and the keys inside them.</p>
+        <p class="cmd"><code>$ goldfinch search url --format plain</code></p>
+        <p class="meta"><span>Rust · AWS SDK</span><span>MIT</span></p>
+        <a class="more" href="https://github.com/chainringlabs/goldfinch">Source <span aria-hidden="true">→</span></a>
+      </article>
+
+      <a class="card all" href="https://github.com/chainringlabs">
+        <span>Everything else lives on GitHub</span>
+        <strong>github.com/<wbr>chainringlabs <span aria-hidden="true">→</span></strong>
+      </a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>© 2026 Chain Ring Labs</p>
+    <p><a href="https://github.com/chainringlabs">GitHub</a> · <a href="https://github.com/chainringlabs/chainringlabs.github.io">Source for this site</a></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
