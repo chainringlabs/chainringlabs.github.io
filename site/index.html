@@ -32,7 +32,7 @@
   <main>
     <section class="hero">
       <img class="hero-ring" src="assets/chainring.svg" alt="" width="488" height="488">
-      <p class="eyebrow">Open source · 14 projects</p>
+      <p class="eyebrow">Open source · 15 projects</p>
       <h1>Small software<br>you run <em>yourself.</em></h1>
       <p class="lede">Chain Ring Labs builds self-hosted web apps, command-line tools and Mac utilities. Each one is open source, runs on your own hardware and does one job.</p>
       <p class="hero-links">
@@ -101,11 +101,107 @@
       </div>
     </article>
 
+    <article class="feature" id="wearstream">
+      <div class="feature-text">
+        <p class="num">No. 03 <span>Data capture</span></p>
+        <h2>WearStream</h2>
+        <p class="blurb">A self-hosted container that keeps a complete local copy of your raw Whoop and Garmin Connect data. On a schedule it writes exactly what the vendors returned into an append-only tree, the raw layer of your own data lake.</p>
+        <ul class="points">
+          <li>Re-captures recent days on every run, because vendors revise them, and keeps only what changed</li>
+          <li>Fills in older history one day at a time, well inside the vendors’ rate limits</li>
+          <li>Signed image with an SBOM and build provenance; runs as non-root on a read-only filesystem</li>
+        </ul>
+        <dl class="spec">
+          <div><dt>Stack</dt><dd>Python · uv · Chainguard distroless</dd></div>
+          <div><dt>Runs as</dt><dd>Single Docker container</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+        </dl>
+        <a class="btn btn-solid" href="https://github.com/chainringlabs/wearstream">Source on GitHub <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="gallery" data-terminal>
+        <figure class="term">
+          <figcaption>wearstream · terminal</figcaption>
+          <div class="term-view" id="wearstream-status">
+<pre><code><span class="prompt">$</span> docker exec wearstream wearstream status
+<b>Daemon:</b> running (phase running, version 0.1.0, heartbeat 0 s ago)
+<b>Needs attention:</b> nothing
+<b>garmin:</b> active; last successful unit 2026-11-24T16:43:51.226Z
+  daily: last completed tick 2026-11-24T15:42:51.628Z, success
+  reference: last completed tick 2026-11-24T15:42:51.628Z, failed
+  checks: last completed tick 2026-11-24T15:42:51.628Z, success
+  in flight: daily 2026-05-20 (run fd89cb72e3b6)
+  backfill daily: pass at 2026-05-21; missing 14, filled 13, known empty 0, given up 0; 0 days need a refill
+<b>whoop:</b> active; last successful unit 2026-11-24T16:17:10.392Z
+  range: last completed tick 2026-11-24T16:17:00.000Z, success
+  snapshots: last completed tick 2026-11-24T16:17:00.000Z, success
+  checks: last completed tick 2026-11-24T16:37:00.000Z, success
+  backfill range: no pass running; missing 0, filled 0, known empty 0, given up 0; 0 days need a refill
+<b>Checks:</b>
+  garmin_hrv_completeness: suppressed (first_capture_pending), None since None
+  garmin_steps_intraday_completeness: suppressed (first_capture_pending), None since None
+  garmin_steps_intraday_content_health: warning, empty since 2026-11-24T15:42:52.070Z
+  garmin_tokenstore_health: suppressed (first_capture_pending), None since None
+  garmin_training_readiness_completeness: suppressed (first_capture_pending), None since None</code></pre>
+          </div>
+          <div class="term-view" id="wearstream-config" hidden>
+<pre><code><span class="prompt">$</span> docker exec wearstream wearstream config
+<b>Settings:</b>
+  WEARSTREAM_DATA_DIR = /data (default)
+  WEARSTREAM_FAILING_TICKS = 3 (default)
+  WEARSTREAM_GARMIN_ALT_FORMATS = false (default)
+  WEARSTREAM_GARMIN_BACKFILL_FROM = (unset) (default)
+  WEARSTREAM_GARMIN_CHECKS_SCHEDULE = 7 3-21/6 * * * (default)
+  WEARSTREAM_GARMIN_CHECKS_TIME_LIMIT = 10 (default)
+  WEARSTREAM_GARMIN_CHINA = false (default)
+  WEARSTREAM_GARMIN_DAILY_BACKFILL_PAUSE = 60 (default)
+  WEARSTREAM_GARMIN_DAILY_SCHEDULE = 30 5 * * * (default)
+  WEARSTREAM_GARMIN_DAILY_TIME_LIMIT = 15 (default)
+  WEARSTREAM_GARMIN_DAILY_WINDOW_DAYS = 14 (default)
+  WEARSTREAM_GARMIN_EXCLUDE = menstrual_day,menstrual_calendar,pregnancy_summary (environment)
+  WEARSTREAM_GARMIN_EXPECTED_EMPTY = (unset) (default)
+  WEARSTREAM_GARMIN_LIBRARY_DEBUG = false (default)
+  WEARSTREAM_GARMIN_PACING = 2 (default)
+  WEARSTREAM_GARMIN_REFERENCE_SCHEDULE = 30 5 * * * (default)
+  WEARSTREAM_GARMIN_REFERENCE_TIME_LIMIT = 10 (default)
+  WEARSTREAM_GARMIN_SELECT = (empty) (default)
+  WEARSTREAM_LOG_FORMAT = json (environment)
+  WEARSTREAM_LOG_LEVEL = INFO (default)
+  WEARSTREAM_SECRETS_DIR = /secrets (default)
+  WEARSTREAM_SOURCES = whoop,garmin (environment)
+  WEARSTREAM_STATE_DIR = /state (default)
+  WEARSTREAM_UMASK = 022 (default)
+  WEARSTREAM_WHOOP_BACKFILL_FROM = (unset) (default)
+  WEARSTREAM_WHOOP_CHECKS_SCHEDULE = 37 * * * * (default)
+  WEARSTREAM_WHOOP_CHECKS_TIME_LIMIT = 10 (default)
+  WEARSTREAM_WHOOP_RANGE_BACKFILL_PAUSE = 60 (default)
+  WEARSTREAM_WHOOP_RANGE_TIME_LIMIT = 5 (default)
+  WEARSTREAM_WHOOP_RANGE_WINDOW_DAYS = 8 (default)
+  WEARSTREAM_WHOOP_REDIRECT_URI = https://<span class="redact" role="img" aria-label="redacted"></span>/callback (environment)
+  WEARSTREAM_WHOOP_REQUESTS_PER_MINUTE = 60 (default)
+  WEARSTREAM_WHOOP_SCHEDULE = 17 * * * * (default)
+  WEARSTREAM_WHOOP_SNAPSHOTS_TIME_LIMIT = 5 (default)
+<b>Secret files (under /secrets; contents never shown):</b>
+  whoop/client_id: present
+  whoop/client_secret: present
+  whoop/token.json: present
+  garmin/email: present
+  garmin/password: present
+  garmin/garmin_tokens.json: present
+The configuration is valid.</code></pre>
+          </div>
+        </figure>
+        <div class="thumbs">
+          <button type="button" aria-pressed="true" aria-controls="wearstream-status">Status</button>
+          <button type="button" aria-pressed="false" aria-controls="wearstream-config">Config</button>
+        </div>
+      </div>
+    </article>
+
     <div class="rule"><span>Services</span></div>
 
     <section class="pair">
       <article class="service" id="slacklistener">
-        <p class="num">No. 03 <span>Slack bot</span></p>
+        <p class="num">No. 04 <span>Slack bot</span></p>
         <h2>slacklistener</h2>
         <p class="blurb">A Slack bot you configure in YAML. It watches the channels you name for keywords and images, sends them to the model of your choice through OpenRouter and replies in a thread.</p>
         <figure class="code">
@@ -126,7 +222,7 @@
       </article>
 
       <article class="service" id="gmailclassifier">
-        <p class="num">No. 04 <span>Mail agent</span></p>
+        <p class="num">No. 05 <span>Mail agent</span></p>
         <h2>gmailclassifier</h2>
         <p class="blurb">Labels your Gmail inbox with a decision model instead of a chatbot. Each label is a yes/no question scored with a probability, so the model can only pick from the labels you define.</p>
         <figure class="code">
@@ -150,7 +246,7 @@
 
     <section class="grid">
       <article class="card">
-        <p class="num">No. 05 <span>Web app</span></p>
+        <p class="num">No. 06 <span>Web app</span></p>
         <h3>domiciledb</h3>
         <p>Home inventory built for the insurance claim. Photograph what you own, attach receipts and export a room-by-room PDF proof packet when an adjuster asks.</p>
         <p class="meta"><span>TypeScript · Next.js · SQLite</span><span>MIT</span></p>
@@ -158,7 +254,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 06 <span>Web app</span></p>
+        <p class="num">No. 07 <span>Web app</span></p>
         <h3>vanillamd</h3>
         <p>WYSIWYG note taking that stores plain Markdown files in real folders. No database and no save button, and your notes open in any other editor.</p>
         <p class="meta"><span>TypeScript · Fastify · React</span><span>MIT</span></p>
@@ -166,7 +262,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 07 <span>Web app</span></p>
+        <p class="num">No. 08 <span>Web app</span></p>
         <h3>postgenerator</h3>
         <p>Drafts LinkedIn posts in your voice. It researches a topic, writes, then has an independent evaluator score the draft. Your edits and rejections shape the voice profile.</p>
         <p class="meta"><span>Python · FastAPI · Claude</span><span>MIT</span></p>
@@ -175,7 +271,7 @@
 
       <article class="card wide">
         <div>
-          <p class="num">No. 08 <span>macOS</span></p>
+          <p class="num">No. 09 <span>macOS</span></p>
           <h3>daysuntil</h3>
           <p>Count down to milestones, or up from them, with desktop widgets drawn as a number, bar, ring or dot grid. Everything is stored locally, with no account and no sync.</p>
           <p class="meta"><span>Swift · SwiftUI · WidgetKit</span><span>MIT</span></p>
@@ -185,7 +281,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 09 <span>macOS</span></p>
+        <p class="num">No. 10 <span>macOS</span></p>
         <h3>liveselect</h3>
         <p>A menu bar app. Drag a box around anything on screen and the text lands on your clipboard. OCR runs on-device through Apple Vision.</p>
         <p class="meta"><span>Swift · Vision</span><span>MIT</span></p>
@@ -193,7 +289,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 10 <span>Service</span></p>
+        <p class="num">No. 11 <span>Service</span></p>
         <h3>backvault</h3>
         <p>Scheduled, encrypted backups of a Bitwarden or Vaultwarden vault, plus a standalone tool that restores them when the server is gone.</p>
         <p class="meta"><span>Rust · distroless container</span><span>AGPL-3.0</span></p>
@@ -201,7 +297,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 11 <span>Exporter</span></p>
+        <p class="num">No. 12 <span>Exporter</span></p>
         <h3>jawnscanner</h3>
         <p>A Prometheus exporter for TSA checkpoint wait times at Philadelphia International Airport, ready for Grafana dashboards and alerts.</p>
         <p class="cmd"><code>phl_checkpoint_wait_minutes</code></p>
@@ -210,7 +306,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 12 <span>Terminal app</span></p>
+        <p class="num">No. 13 <span>Terminal app</span></p>
         <h3>runlogger</h3>
         <p>A terminal app for logging daily runs and keeping a run-every-day streak alive, with streak stats, a 14-day chart and monthly mileage.</p>
         <p class="meta"><span>Rust · Ratatui · SQLite</span><span>MIT</span></p>
@@ -218,7 +314,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 13 <span>CLI</span></p>
+        <p class="num">No. 14 <span>CLI</span></p>
         <h3>ghcheck</h3>
         <p>One command for every open pull request across your repos, colour-coded by CI status, so stuck dependency updates are obvious.</p>
         <p class="cmd"><code>$ ghcheck --failing --bot</code></p>
@@ -227,7 +323,7 @@
       </article>
 
       <article class="card">
-        <p class="num">No. 14 <span>CLI</span></p>
+        <p class="num">No. 15 <span>CLI</span></p>
         <h3>goldfinch</h3>
         <p>Read-only lookup for AWS Secrets Manager. List secrets, fetch one, or search across secret names and the keys inside them.</p>
         <p class="cmd"><code>$ goldfinch search url --format plain</code></p>

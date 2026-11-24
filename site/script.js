@@ -15,3 +15,18 @@ for (const gallery of document.querySelectorAll("[data-gallery]")) {
     });
   }
 }
+
+// Terminal panels: a thumb button shows one command's output.
+for (const terminal of document.querySelectorAll("[data-terminal]")) {
+  const buttons = terminal.querySelectorAll(".thumbs button");
+
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      for (const other of buttons) {
+        const selected = other === button;
+        other.setAttribute("aria-pressed", String(selected));
+        document.getElementById(other.getAttribute("aria-controls")).hidden = !selected;
+      }
+    });
+  }
+}

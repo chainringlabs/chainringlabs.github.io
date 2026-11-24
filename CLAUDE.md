@@ -19,13 +19,13 @@ published with GitHub Pages at https://chainringlabs.com.
 ## Architecture
 
 - `site/index.html` — the page. Three tiers in priority order: featured
-  (`.feature`: TurfOps, Showrunner), services (`.service`: slacklistener,
-  gmailclassifier), then the `.grid` of `.card`s. Project numbers ("No. 05")
-  follow page order; renumber when the order changes and keep the "14 projects"
+  (`.feature`: TurfOps, Showrunner, WearStream), services (`.service`: slacklistener,
+  gmailclassifier), then the `.grid` of `.card`s. Project numbers ("No. 06")
+  follow page order; renumber when the order changes and keep the "15 projects"
   count in the hero in step.
 - `site/styles.css` — one stylesheet. Colours and fonts are custom properties on
   `:root`. Two width breakpoints: 980px and 680px.
-- `site/script.js` — screenshot gallery buttons only.
+- `site/script.js` — screenshot gallery and terminal panel buttons only.
 - `site/assets/` — screenshots, fonts, `chainring.svg`.
 
 ## Conventions
@@ -33,7 +33,9 @@ published with GitHub Pages at https://chainringlabs.com.
 - No third-party requests: no CDN scripts, fonts or analytics.
 - Blurbs describe what a project's README says it does. Code panels quote real
   config or commands from that project, never invented output.
-- Screenshots must not show personal data.
+- Screenshots and terminal panels must not show personal data. Terminal panels
+  quote real command output; redact a personal value with a `.redact` bar rather
+  than rewriting it.
 - `main` is protected by the org ruleset; changes land by pull request.
 
 ## Environment Variables

@@ -436,6 +436,78 @@ main,
   }
 }
 
+/* Terminal panel: real command output in place of screenshots. */
+
+.term {
+  margin: 0;
+  border: 2px solid var(--line);
+  background: var(--code-bg);
+  color: var(--code-fg);
+  box-shadow: 10px 10px 0 var(--accent);
+}
+
+.term figcaption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgb(233 226 210 / 18%);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: rgb(233 226 210 / 70%);
+}
+
+.term figcaption::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgb(233 226 210 / 30%);
+  box-shadow: 15px 0 rgb(233 226 210 / 30%), 30px 0 rgb(233 226 210 / 30%);
+  margin-right: 30px;
+}
+
+.term-view {
+  height: 36em;
+  overflow: auto;
+  font-size: 12px;
+}
+
+.term-view[hidden] {
+  display: none;
+}
+
+.term pre {
+  margin: 0;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: inherit;
+  line-height: 1.65;
+}
+
+.term code {
+  font-family: inherit;
+}
+
+.term b {
+  font-weight: 500;
+  color: var(--code-key);
+}
+
+.term .prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.redact {
+  display: inline-block;
+  width: 17ch;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  background: var(--code-fg);
+}
+
 /* ---------- services ---------- */
 
 .pair {
